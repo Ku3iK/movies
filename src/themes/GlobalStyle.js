@@ -11,10 +11,6 @@ const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-
-    *:focus {
-        outline: 2px solid ${({ theme }) => theme.color.secondary};
-    }
         
     body {
         font-size: 1.6rem;
