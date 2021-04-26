@@ -19,8 +19,8 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-size: 1.6rem;
         font-family: ${({ theme }) => theme.font.name};
-        background-color: ${({ theme }) => theme.color.primary};
-        color: ${({ theme }) => theme.color.text};
+        background-color: ${({ theme }) => theme.color.white};
+        color: ${({ theme }) => theme.color.white};
         overflow-x: hidden;
     }
 
