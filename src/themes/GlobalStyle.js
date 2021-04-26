@@ -27,6 +27,22 @@ const GlobalStyle = createGlobalStyle`
     html {
         font-size: 62.5%;
     }
+
+    main {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    a {
+        font-size: 1.8rem;
+        text-decoration: none;
+        color: ${({ theme }) => theme.color.secondary};
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+    }
     
 `
 
