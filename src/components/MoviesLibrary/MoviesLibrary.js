@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import MovieContext from '../../Contexts/MovieContext';
 import Movie from './Movie'
 
@@ -22,6 +23,14 @@ const MoviesLibrary = () => {
     );
 }
 
-export default MoviesLibrary;export default MoviesLibrary;
+export default MoviesLibrary;
 
 const MoviesContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    @media(min-width: ${({ theme }) => theme.breakpoints.tablets}) {
+        flex-direction: row;
+    }
+`;
