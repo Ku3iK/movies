@@ -29,6 +29,23 @@ const GlobalStyle = createGlobalStyle`
         margin: 0 auto;
     }
 
+    h2 {
+        text-transform: lowercase;
+        font-size: ${({ theme }) => theme.font.s};
+        color: ${({ theme }) => theme.color.primary};
+        margin: 2rem;
+        padding: 0 2rem;
+        @media(min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+            font-size: ${({ theme }) => theme.font.m};
+        }
+        @media(min-width: ${({ theme }) => theme.breakpoints.portraitTablets}) {
+            font-size: ${({ theme }) => theme.font.l};
+        }
+        @media(min-width: ${({ theme }) => theme.breakpoints.smallDesktop}) {
+            font-size: ${({ theme }) => theme.font.xl};
+        } 
+    }
+
     a {
         font-size: 1.8rem;
         text-decoration: none;
