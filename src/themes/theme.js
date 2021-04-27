@@ -25,7 +25,7 @@ export default {
         desktop: '1280px',
         smallDesktop: '1025px',
         tablets: '768px',
-        portraitTablets: '600px',
+        portraitTablets: '570px',
         mobile: '480px',
     },
   };
