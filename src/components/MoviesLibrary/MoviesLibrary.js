@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import MovieContext from '../../Contexts/MovieContext';
 import Movie from './Movie'
+import MovieDetails from './MovieDetails';
 
 const MoviesLibrary = () => {
+
+    const [propertiesOfMovie, toggleMovie] = useState({
+        isVisible: false,
+        movieId: null,
+    });
 
     const handleShowMovie = id => {
         const body = document.querySelector('body');
@@ -20,13 +26,37 @@ const MoviesLibrary = () => {
     return(
         <MovieContext.Consumer>
             {value => {
+                const currentMovieData = value.filter(el => el.id === propertiesOfMovie.movieId)[0] || null;
                 return(
                     <>
                         <h2>Most popular movies</h2>
-                        <MoviesContainer>
+                        <MoviesContainer className="moviesContainer">
                             {value.map(el => {
-                                return <Movie key={el.id} id={el.id} title={el.title} background={el.backdrop_path} voteAverage={el.vote_average}/>
+                                return <Movie 
+                                    key={el.id}
+                                    id={el.id}
+                                    title={el.title}
+                                    background={el.backdrop_path}
+                                    voteAverage={el.vote_average}
+                                    handleShowMovie={handleShowMovie} 
+                                />
                             })}
+                            {propertiesOfMovie.isVisible && currentMovieData ? (
+                                <div className="popup">
+                                    <div>
+                                        <MovieDetails 
+                                            key={currentMovieData.id} 
+                                            id={currentMovieData.id}
+                                            title={currentMovieData.title}
+                                            img={currentMovieData.backdrop_path}
+                                            voteAverage={currentMovieData.vote_average}
+                                            aboutMovie={currentMovieData.overview}
+                                            relaseDate={currentMovieData.relase_date}
+                                            handleHideMovie={handleHideMovie}
+                                        />
+                                    </div>
+                                </div>
+                            ): null}
                         </MoviesContainer>
                     </>
                 );
