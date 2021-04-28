@@ -62,6 +62,10 @@ const GlobalStyle = createGlobalStyle`
         -ms-touch-action: none;
         background-color: rgba(0, 0, 0, .5);
     }
+
+    span {
+        color: ${({ theme }) => theme.color.secondary};
+        font-weight: ${({ theme }) => theme.font.bold};
     }
     
 `
