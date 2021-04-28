@@ -45,6 +45,10 @@ const NavigationContainer = styled.div`
         margin: 1rem 3rem;
         z-index: 3;
         cursor: pointer;
+        border: none;
+        :hover {
+            background-color: transparent;
+        }
         & div {
             position: absolute;
             background-color: ${({ theme }) => theme.color.secondary};
