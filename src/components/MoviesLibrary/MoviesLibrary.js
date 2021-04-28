@@ -33,4 +33,17 @@ const MoviesContainer = styled.div`
     @media(min-width: ${({ theme }) => theme.breakpoints.tablets}) {
         flex-direction: row;
     }
+    .popup {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: .1rem;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        z-index: 99;
+        background-color: rgba(0, 0, 0, .1);
+    }
 `;
