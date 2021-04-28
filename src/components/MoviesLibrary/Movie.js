@@ -3,15 +3,14 @@ import styled from 'styled-components';
 import '../../helpers/FontAwesomeIcons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Movie = ({ title, background, voteAverage }) => {
+const Movie = ({ id, title, background, voteAverage, handleShowMovie }) => {
     const libraryOfImgUrl = "https://image.tmdb.org/t/p/w500/";
 
     return(
-        <SingleMovie>
+        <SingleMovie onClick={() => handleShowMovie(id)}>
             <img src={`${libraryOfImgUrl}${background}`} alt=""/>
             <div>
                 <h3>{title}</h3>
-                <p>IMBd: <span>{voteAverage}</span></p>
                 <p>IMBd: <span>{voteAverage}  <FontAwesomeIcon icon='star'/></span></p>
             </div>
         </SingleMovie>
@@ -50,10 +49,6 @@ const SingleMovie = styled.div`
         border-radius: 0 0 25px 25px;
         p {
             padding: .5rem 0 0;
-            span {
-                color: ${({ theme }) => theme.color.secondary};
-                font-weight: ${({ theme }) => theme.font.bold};
-            }
         }
     }
 `;
