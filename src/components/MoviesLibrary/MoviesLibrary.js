@@ -11,6 +11,12 @@ const MoviesLibrary = () => {
         body.classList.add('inactive');
         window.scroll(0,0);
     };
+
+    const handleHideMovie = () => {
+        toggleMovie({...propertiesOfMovie, isVisible: false, movieId: null});
+        document.querySelector('body').classList.remove('inactive');
+    };
+
     return(
         <MovieContext.Consumer>
             {value => {
