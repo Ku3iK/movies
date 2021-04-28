@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import '../../helpers/FontAwesomeIcons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Movie = ({ title, background, voteAverage }) => {
     const libraryOfImgUrl = "https://image.tmdb.org/t/p/w500/";
@@ -10,6 +12,7 @@ const Movie = ({ title, background, voteAverage }) => {
             <div>
                 <h3>{title}</h3>
                 <p>IMBd: <span>{voteAverage}</span></p>
+                <p>IMBd: <span>{voteAverage}  <FontAwesomeIcon icon='star'/></span></p>
             </div>
         </SingleMovie>
     );
