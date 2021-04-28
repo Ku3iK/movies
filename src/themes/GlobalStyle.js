@@ -55,6 +55,13 @@ const GlobalStyle = createGlobalStyle`
     button {
         background-color: transparent;
         border: none;
+    .inactive {
+        position: relative;
+        overflow-y: hidden;
+        touch-action: none;
+        -ms-touch-action: none;
+        background-color: rgba(0, 0, 0, .5);
+    }
     }
     
 `
