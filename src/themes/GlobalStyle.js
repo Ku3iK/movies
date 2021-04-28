@@ -53,8 +53,19 @@ const GlobalStyle = createGlobalStyle`
     }
 
     button {
+        margin: 2rem 0;
+        padding: .5rem 1.5rem;
         background-color: transparent;
-        border: none;
+        border: .2rem solid ${({ theme }) => theme.color.secondary};
+        color: ${({ theme }) => theme.color.white};
+        font-size: ${({ theme }) => theme.font.xs};
+        transition: .3s;
+        cursor: pointer;
+        :hover {
+            background-color: ${({ theme }) => theme.color.secondary};
+        }
+    }
+
     .inactive {
         position: relative;
         overflow-y: hidden;
