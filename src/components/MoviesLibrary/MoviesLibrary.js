@@ -5,6 +5,12 @@ import Movie from './Movie'
 
 const MoviesLibrary = () => {
 
+    const handleShowMovie = id => {
+        const body = document.querySelector('body');
+        toggleMovie({...propertiesOfMovie, isVisible: true, movieId: id});
+        body.classList.add('inactive');
+        window.scroll(0,0);
+    };
     return(
         <MovieContext.Consumer>
             {value => {
