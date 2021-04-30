@@ -51,7 +51,8 @@ const MoviesLibrary = () => {
                                             img={currentMovieData.backdrop_path}
                                             voteAverage={currentMovieData.vote_average}
                                             aboutMovie={currentMovieData.overview}
-                                            relaseDate={currentMovieData.relase_date}
+                                            releaseDate={currentMovieData.release_date}
+                                            originalLanguage={currentMovieData.original_language}
                                             handleHideMovie={handleHideMovie}
                                         />
                                     </div>
