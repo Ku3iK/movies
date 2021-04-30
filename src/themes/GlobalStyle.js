@@ -11,6 +11,23 @@ const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
+
+    ::-webkit-scrollbar {
+        width: 1rem;
+        height: .5rem;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(13deg, #14213d 14%,#fca311 64%);
+        border-radius: 1.5rem;
+        :hover{
+            background: linear-gradient(13deg, #FCA311 14%,#fca311 64%);
+        }
+    }
+    ::-webkit-scrollbar-track{
+        background: ${({ theme }) => theme.color.white};
+        border-radius: 1rem;
+        box-shadow: inset .7rem 1rem 1.2rem transparent;
+    }
         
     body {
         font-size: 1.6rem;
