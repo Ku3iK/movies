@@ -28,6 +28,24 @@ const GlobalStyle = createGlobalStyle`
         border-radius: 1rem;
         box-shadow: inset .7rem 1rem 1.2rem transparent;
     }
+
+    input {
+        background-color: ${({ theme }) => theme.color.primary};
+        border: .2rem solid ${({ theme }) => theme.color.secondary};
+        font-size: ${({ theme }) => theme.font.xs};
+        color: ${({ theme }) => theme.color.secondary};
+        border-radius: 2.5rem;        
+        margin: 2rem;
+        padding: 1rem 3rem;
+        ::placeholder {
+            color: ${({ theme }) => theme.color.white};
+            opacity: .5;
+        }
+        @media(min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+            font-size: ${({ theme }) => theme.font.s};
+            margin: 2rem 4rem;
+        }
+    }
         
     body {
         font-size: 1.6rem;
