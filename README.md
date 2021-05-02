@@ -24,7 +24,7 @@ npm start
 
 ## AUTHOR
 
-### Jakub Kaczmarek ->
+### Jakub Kaczmarek
 
 1.  [GitHub](https://github.com/Ku3iK)
 
