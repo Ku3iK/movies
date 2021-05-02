@@ -5,6 +5,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const MovieDetails = ({ id, title, img, voteAverage, aboutMovie, releaseDate, originalLanguage, handleHideMovie }) => {
     const libraryOfImgUrl = "https://image.tmdb.org/t/p/w500/";
 
+    const handleSetFavourite = () => {
+        const favourite = document.querySelector('.favourite');
+        favourite.classList.toggle('favouriteSet');
+        favourite.classList.forEach(el => {
+        if(el === 'favouriteSet') favourite.textContent = 'Remove from favourite';
+        else favourite.textContent = 'Add from favourite';
+        })
+    }
+
     return(
         <SingleMovieDetail>
             <button onClick={() => handleHideMovie()}>close</button>
@@ -14,6 +23,7 @@ const MovieDetails = ({ id, title, img, voteAverage, aboutMovie, releaseDate, or
                 </div>
                 <div>
                     <h3>{title}</h3>
+                    <button className='favourite' onClick={() => handleSetFavourite()}>Add to favourite</button>
                     <p>Relase date: {releaseDate}</p>
                     <p>Original language: {originalLanguage}</p>
                     <p>IMBd: <span>{voteAverage}  <FontAwesomeIcon icon='star'/></span></p>
