@@ -18,7 +18,7 @@ const App = () => {
         setMoviesList(response.data.results);
       })
       .catch(err => {
-        console.log(err);
+        alert(err);
       })
   }, []);
 
