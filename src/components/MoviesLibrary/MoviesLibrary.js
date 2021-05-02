@@ -11,6 +11,11 @@ const MoviesLibrary = () => {
         movieId: null,
     });
 
+    const [searchedMovie, setMovie] = useState({
+        isSet: false,
+        value: null,
+    })
+
     const handleShowMovie = id => {
         const body = document.querySelector('body');
         toggleMovie({...propertiesOfMovie, isVisible: true, movieId: id});
@@ -23,24 +28,42 @@ const MoviesLibrary = () => {
         document.querySelector('body').classList.remove('inactive');
     };
 
+    const handleSearchMovie = e => {
+        setMovie({...searchedMovie, isSet: true, value: e.target.value.toLowerCase()});
+    }
+
     return(
         <MovieContext.Consumer>
             {value => {
                 const currentMovieData = value.filter(el => el.id === propertiesOfMovie.movieId)[0] || null;
                 return(
                     <>
+                        <input type='text' onChange={handleSearchMovie} placeholder='Enter title or relase date' />
                         <h2>Most popular movies</h2>
                         <MoviesContainer className="moviesContainer">
                             {value.map(el => {
-                                return <Movie 
-                                    key={el.id}
-                                    id={el.id}
-                                    title={el.title}
-                                    background={el.backdrop_path}
-                                    voteAverage={el.vote_average}
-                                    handleShowMovie={handleShowMovie} 
-                                />
-                            })}
+                                if(!searchedMovie.isSet) {
+                                    return (<Movie 
+                                        key={el.id}
+                                        id={el.id}
+                                        title={el.title}
+                                        background={el.backdrop_path}
+                                        voteAverage={el.vote_average}
+                                        handleShowMovie={handleShowMovie} 
+                                    />)
+                                }else if(searchedMovie.isSet && (el.title.toLowerCase().includes(searchedMovie.value) || el.release_date.toLowerCase().includes(searchedMovie.value) )){
+                                    return (<Movie 
+                                        key={el.id}
+                                        id={el.id}
+                                        title={el.title}
+                                        background={el.backdrop_path}
+                                        voteAverage={el.vote_average}
+                                        handleShowMovie={handleShowMovie} 
+                                    />)
+                                }else {
+                                    return null;
+                                }
+                            })}  
                             {propertiesOfMovie.isVisible && currentMovieData ? (
                                 <div className="popup">
                                     <div>
