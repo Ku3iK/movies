@@ -7,6 +7,7 @@ import axios from 'axios';
 import Navigation from './components/Navigation/Navigation';
 import MoviesLibrary from './components/MoviesLibrary/MoviesLibrary';
 import MovieContext from './Contexts/MovieContext';
+import FavouritesMovies from './components/FavouritesMovies/FavouritesMovies';
 
 const App = () => {
   const [moviesList, setMoviesList] = useState([]);
@@ -29,7 +30,8 @@ const App = () => {
           <Navigation />
           <main>
             <Switch>
-              <Route path='/' exact component={MoviesLibrary} />  
+              <Route path='/' exact component={MoviesLibrary} />
+              <Route path='/favouriteMovies'  component={FavouritesMovies} />
             </Switch>          
           </main>
         </BrowserRouter>
